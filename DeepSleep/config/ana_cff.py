@@ -10,6 +10,7 @@ def cdir():
     if 'condor' in _cdir: _wdir = './' # if working on condor, already in the right directory
     else:
         _wdir = sb.check_output('echo $(git rev-parse --show-toplevel)', shell=True).decode().strip('\n')+'/DeepSleep/'
+    print(_wdir)
     return _wdir, _cdir
 
 _wdir, _cdir = cdir()
@@ -18,22 +19,22 @@ master_file_path  = _wdir+'files/'
 dataDir           = _wdir+'data/'
 pdfDir            = _wdir+'pdf/'
 #### NanoAODv7 PostProcessed Sample Directory ####
-preproc_dir = '/cms/data/store/user/bcaraway/NanoAODv7/PreProcessed/'
-postproc_dir = '/cms/data/store/user/bcaraway/NanoAODv7/PostProcessed/'
-postSkim_dir = '/cms/data/store/user/ttxeft/NanoAODv7/Skim/'
-pdfNtuples_dir = '/cms/data/store/user/ttxeft/NanoAODv7/PDF/'
+preproc_dir = '/cms/data/store/user/usarkar/'
+postproc_dir = '/cms/data/store/user/usarkar/'
+postSkim_dir = '/cms/data/store/user/usarkar'
+pdfNtuples_dir = '/cms/data/store/user/usarkar/'
 # NN dir
 DNNoutputDir      = dataDir+'/NN_files/'
 # Overhead #
 import os
-if   os.path.exists('/cms/data/store/user/ttxeft/') : # test to see if on kodiak
-    file_path         = postSkim_dir # for kodiak
-elif os.path.exists('/eos/uscms/') or 'condor' in _cdir: # test to see if on lpc will need to fix for condor on kodiak i think
-    file_path        = 'root://cmseos.fnal.gov//store/user/bcaraway/skimAnaSamples/'
-    preproc_dir  = preproc_dir.replace('/cms/data','/eos/uscms').replace('ttxeft','bcaraway')
-    postproc_dir = postproc_dir.replace('/cms/data','/eos/uscms').replace('ttxeft','bcaraway')
-    postSkim_dir = postSkim_dir.replace('/cms/data','/eos/uscms').replace('ttxeft','bcaraway')
-else: raise("Not on Kodiak or LPC, please manually input file_path in file: ./config/ana_cff.py")
+#if   os.path.exists('/cms/data/store/user/usarkar/') : # test to see if on kodiak
+#    file_path         = postSkim_dir # for kodiak
+#elif os.path.exists('/eos/uscms/') or 'condor' in _cdir: # test to see if on lpc will need to fix for condor on kodiak i think
+file_path        = 'root://cmseos.fnal.gov//store/user/lpchadwxmet/ULPrivateProd/50K/TCHIZZ_800_1/'
+preproc_dir  = preproc_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
+postproc_dir = postproc_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
+postSkim_dir = postSkim_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
+#else: raise("Not on Kodiak or LPC, please manually input file_path in file: ./config/ana_cff.py")
 
 ##
 #nn                = 'NN'
