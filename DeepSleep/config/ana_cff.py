@@ -19,10 +19,10 @@ master_file_path  = _wdir+'files/'
 dataDir           = _wdir+'data/'
 pdfDir            = _wdir+'pdf/'
 #### NanoAODv7 PostProcessed Sample Directory ####
-preproc_dir = '/cms/data/store/user/usarkar/'
-postproc_dir = '/cms/data/store/user/usarkar/'
-postSkim_dir = '/cms/data/store/user/usarkar'
-pdfNtuples_dir = '/cms/data/store/user/usarkar/'
+preproc_dir = '/eos/user/u/usarkar'
+postproc_dir = '/eos/user/u/usarkar'
+postSkim_dir = '/eos/user/u/usarkar'
+pdfNtuples_dir = '/eos/user/u/usarkar'
 # NN dir
 DNNoutputDir      = dataDir+'/NN_files/'
 # Overhead #
@@ -31,9 +31,9 @@ import os
 #    file_path         = postSkim_dir # for kodiak
 #elif os.path.exists('/eos/uscms/') or 'condor' in _cdir: # test to see if on lpc will need to fix for condor on kodiak i think
 file_path        = 'root://cmseos.fnal.gov//store/user/lpchadwxmet/ULPrivateProd/50K/TCHIZZ_800_1/'
-preproc_dir  = preproc_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
-postproc_dir = postproc_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
-postSkim_dir = postSkim_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
+#preproc_dir  = preproc_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
+#postproc_dir = postproc_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
+#postSkim_dir = postSkim_dir.replace('/cms/data','/eos/uscms').replace('usarkar','')
 #else: raise("Not on Kodiak or LPC, please manually input file_path in file: ./config/ana_cff.py")
 
 ##
